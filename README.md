@@ -35,7 +35,7 @@ In a local environment it can be useful to manually produce content in your kafk
 [Kafkacat](https://github.com/edenhill/kafkacat) is useful tool for this. For example, 
 after the docker environment is running, use the following command to produce a json message in the locally running broker:
 ```
-kafkacat -b localhost:9092 -t orders -T -P myjson.json
+kafkacat -b localhost:9092 -t mytopic -T -P myjson.json
 ```
 Where the file `myjson.json` is a locally existing file with valid json data format.
 
