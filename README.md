@@ -39,4 +39,7 @@ kafkacat -b localhost:9092 -t mytopic -T -P myjson.json
 ```
 Where the file `myjson.json` is a locally existing file with valid json data format.
 
+Your microservice application typically spawns a kafka consumer which consumes this message and while doing so
+produces metrics which will be scraped by prometheus on the aforementioned endpoint.
+
 Enjoy.
