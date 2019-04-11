@@ -13,7 +13,7 @@ git clone https://github.com/oemergenc/dc-kafka-grafana-prometheus
 cd dc-kafka-grafana-prometheus
 docker-compose up
 ```
-This will start 4 Containers with each exposing its default port to the host machine.
+This will start 4 containers with each exposing its default port to the host machine.
 * Kafka -> 127.0.0.1:9092
 * Zookeeper -> 127.0.0.1:2181
 * Grafana -> 127.0.0.1:3000
@@ -30,7 +30,7 @@ http://127.0.0.1:3149/admin/metrics
 ```
 Make sure your microservice exposes a corresponding prometheus metrics endpoint at this path.
 
-## Produce messages with kafakcat
+## Produce messages with kafkacat
 In a local environment it can be useful to manually produce content in your kafka broker. 
 [Kafkacat](https://github.com/edenhill/kafkacat) is useful tool for this. For example, 
 after the docker environment is running, use the following command to produce a json message in the locally running broker:
