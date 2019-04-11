@@ -32,7 +32,8 @@ Make sure your microservice exposes a corresponding prometheus metrics endpoint 
 
 ## Produce messages with kafakcat
 In a local environment it can be usefull to manually produce content in your kafka broker. 
-Kafkacat is useful tool for this. For example, after the docker environment is running, use the following command to produce a json message in the locally running broker:
+[Kafkacat](https://github.com/edenhill/kafkacat) is useful tool for this. For example, 
+after the docker environment is running, use the following command to produce a json message in the locally running broker:
 ```
 kafkacat -b localhost:9092 -t orders -T -P myjson.json
 ```
