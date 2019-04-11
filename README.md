@@ -4,7 +4,7 @@ monitoring stack consisting of a grafana frontend, prometheus backend and a mini
 This is useful if you want to debug the implementation of your metrics logic in
 a mircoservice locally before rolling it out to a test or production environment.
 
-If the setup of your microservice infrastructure includes thos technologies you can easy setup a debug environment 
+If the setup of your microservice infrastructure includes those technologies you can easily setup a debug environment 
 locally using the configuration provided here.
 
 ## Usage
@@ -24,14 +24,14 @@ Simply oben your browser at `http://127.0.0.1:3000` and you can log into the gra
 Username: admin
 Password: secret
 ```
-The prometheus instance will scrape every 15 seconds the host machine the following endpoint:
+The prometheus instance will scrape every 15 seconds the host machine at the following endpoint:
 ```
 http://127.0.0.1:3149/admin/metrics
 ```
 Make sure your microservice exposes a corresponding prometheus metrics endpoint at this path.
 
 ## Produce messages with kafakcat
-In a local environment it can be usefull to manually produce content in your kafka broker. 
+In a local environment it can be useful to manually produce content in your kafka broker. 
 [Kafkacat](https://github.com/edenhill/kafkacat) is useful tool for this. For example, 
 after the docker environment is running, use the following command to produce a json message in the locally running broker:
 ```
