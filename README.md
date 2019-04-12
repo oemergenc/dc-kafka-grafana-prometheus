@@ -19,16 +19,29 @@ This will start 4 containers with each exposing its default port to the host mac
 * Grafana -> 127.0.0.1:3000
 * Prometheus -> 127.0.0.1:9090
 
+### Grafana
+The grafana container ist preconfigured to automatically setup provisioned dashboards within the folder `dashboards`.
+
 Simply oben your browser at `http://127.0.0.1:3000` and you can log into the grafana dashboard using the following credentials:
 ```
 Username: admin
 Password: secret
 ```
-The prometheus instance will scrape every 15 seconds the host machine at the following endpoint:
+There you should find your provisioned dashboards.
+
+### Prometheus
+The prometheus container ist preconfigured to scrape every 15 seconds your host machine at the following endpoint:
 ```
 http://127.0.0.1:3149/admin/metrics
 ```
 Make sure your microservice exposes a corresponding prometheus metrics endpoint at this path.
+
+Futhermore the container allows admin api access. Do not use this in any production environment. 
+This allows to delete all data from prometheus using REST Api. For example to delete all which were aquired using the mentioned 
+endpoint you could use the following shell command:
+```
+curl -X POST -g 'http://localhost:9090/api/v1/admin/tsdb/delete_series?match[]={job="local_service"}'
+```
 
 ## Produce messages with kafkacat
 In a local environment it can be useful to manually produce content in your kafka broker. 
