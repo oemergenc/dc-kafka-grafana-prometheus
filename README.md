@@ -13,11 +13,21 @@ git clone https://github.com/oemergenc/dc-kafka-grafana-prometheus
 cd dc-kafka-grafana-prometheus
 docker-compose up
 ```
-This will start 4 containers with each exposing its default port to the host machine.
+This will start multiple containers with each exposing its default port to the host machine.
 * Kafka -> 127.0.0.1:9092
+* Kafka-Topic-Ui -> 127.0.0.1:8000
 * Zookeeper -> 127.0.0.1:2181
 * Grafana -> 127.0.0.1:3000
 * Prometheus -> 127.0.0.1:9090
+
+### Kafka
+There are several containers involved in the kafka setup to allow you to inspect the message published onto this broker.
+The provided setup automatically start a web ui, which is available at the following url from your host machine,
+```
+http://127.0.0.1:8000
+```
+Besides this the configuration also allows external clients to connect to the broker. For this you could use the famous Kafka Tool
+and point it to the default urls of zookeeper and kafka mentioned above to see the messages of the broker.
 
 ### Grafana
 The grafana container ist preconfigured to automatically setup provisioned dashboards within the folder `dashboards`.
