@@ -1,14 +1,11 @@
 version: "3"
 
-networks:
-  public: {}
-
 services:
   zookeeper:
-    image: wurstmeister/zookeeper
-    hostname: zookeeper
+    image: wurstmeister/zookeeper:3.4.6
     ports:
       - "2181:2181"
+
   kafka:
     image: wurstmeister/kafka:2.11-2.0.0
     depends_on:
@@ -53,16 +50,12 @@ services:
       - kafka-rest-proxy
       
   prometheus:
-    build: './prometheus'
-    networks:
-        - public
+    build: './prometheus'    
     ports:
       - '9090:9090'
 
   grafana:
-    build: './grafana'
-    networks:
-      - public
+    build: './grafana'    
     ports:
       - '3000:3000'
     environment:
